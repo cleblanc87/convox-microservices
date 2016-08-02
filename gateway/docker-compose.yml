@@ -30,6 +30,8 @@ services:
         dev:
             aliases:
               - kong.127.0.0.1.xip.io
+              - app1.127.0.0.1.xip.io
+              - app2.127.0.0.1.xip.io
   kongdashboard:
     image: pgbi/kong-dashboard:latest
     ports:
