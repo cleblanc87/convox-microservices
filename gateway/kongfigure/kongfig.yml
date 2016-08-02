@@ -1,0 +1,5 @@
+apis:
+  - name: $KONG_APP_NAME
+    attributes:
+      request_host: $KONGDASHBOARD_VIRTUAL_HOST
+      upstream_url: "http://$KONGDASHBOARD_HOST:$KONGDASHBOARD_PORT"

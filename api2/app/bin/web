@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# cd to the api root
+cd $(dirname ${0:-})/..
+
+if [ "$DEVELOPMENT" == "true" ]; then
+  $GOPATH/bin/rerun -build github.com/cleblanc87/convox-microservices/api2/app
+else
+  $GOPATH/bin/app
+fi

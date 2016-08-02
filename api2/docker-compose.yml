@@ -1,0 +1,20 @@
+version: "2"
+services:
+  api:
+    build: ./app
+    environment:
+      - DEVELOPMENT=true
+    ports:
+      - 5000
+  kongfigure:
+    build: ./kongfigure
+    environment:
+      - KONG_APP_NAME=api2
+      - KONG_HOST=kong.127.0.0.1.xip.io:8001
+      - API_VIRTUAL_HOST=api2.127.0.0.1.xip.io
+    links:
+      - api
+networks:
+  dev:
+    external:
+      name: demo_dev
