@@ -1,11 +1,17 @@
 version: "2"
 services:
+  memcached:
+    image: memcached
+    ports:
+    - 11211
   api:
     build: ./app
     environment:
       - DEVELOPMENT=true
     ports:
       - 5000
+    links:
+      - memcached
   kongfigure:
     build: ./kongfigure
     environment:
